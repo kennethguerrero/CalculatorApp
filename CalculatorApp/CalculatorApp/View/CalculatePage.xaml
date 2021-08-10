@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CalculatorApp.View.CalculatePage"
+             xmlns:vm="clr-namespace:CalculatorApp.ViewModel"
+             Title="{Binding Title}">
+
+    <ContentPage.BindingContext>
+        <vm:CalculateViewModel />
+    </ContentPage.BindingContext>
+    
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="Center"
+                     HorizontalOptions="Center">
+            <Entry Placeholder="Number 1" 
+                   Text="{Binding Number1, StringFormat='{0:#.##;;}'}"
+                   Keyboard="Numeric"/>
+            <Entry Placeholder="Number 2" 
+                   Text="{Binding Number2 ,StringFormat='{0:#.##;;}'}"
+                   Keyboard="Numeric"/>
+            <Button Text="+" 
+                    Command="{Binding AddCommand}"/>
+
+            <StackLayout>
+                <Label Text="{Binding Output}"
+                       FontSize="20"
+                       TextColor="Black"/>
+            </StackLayout>
+            
+        </StackLayout>
+    </ContentPage.Content>
+    
+</ContentPage>
